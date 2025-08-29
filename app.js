@@ -190,9 +190,13 @@ app.post('/generate-code', async (req, res) => {
 });
 
 
-// 11. 설정한 포트에서 서버가 요청을 수신하도록 실행합니다.
-// 서버가 시작되면 콘솔에 메시지를 출력합니다.
-app.listen(port, () => {
-  console.log(`✅ Server is running on http://localhost:${port}`);
-});
+// 11. Vercel 서버리스에서는 앱을 내보내고, 로컬 실행 시에만 포트 리슨
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  // 서버가 시작되면 콘솔에 메시지를 출력합니다.
+  app.listen(port, () => {
+    console.log(`✅ Server is running on http://localhost:${port}`);
+  });
+}
  
