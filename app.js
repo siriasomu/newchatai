@@ -1,6 +1,7 @@
 // 1. 필요한 모듈들을 불러옵니다.
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 // 2. express 앱을 생성합니다.
@@ -25,6 +26,8 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// 정적 파일 제공 (예: /public 아래 자산)
+app.use(express.static('public'));
 
 // 5. 루트 경로('/')에 대한 GET 요청을 처리하는 라우터를 설정합니다.
 app.get('/', (req, res) => {
@@ -34,6 +37,11 @@ app.get('/', (req, res) => {
     status: 'running',
     timestamp: new Date().toISOString()
   });
+});
+
+// 간단한 채팅 UI 제공
+app.get('/chat-ui', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
 });
 
 // 6. 헬스체크 엔드포인트
