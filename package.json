@@ -1,0 +1,35 @@
+{
+  "name": "newchatai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "echo 'Build completed'",
+    "vercel-build": "echo 'Vercel build completed'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siriasomu/newchatai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siriasomu/newchatai/issues"
+  },
+  "homepage": "https://github.com/siriasomu/newchatai#readme",
+  "dependencies": {
+    "@google/genai": "^1.16.0",
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.56.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.1",
+    "nodemon": "^3.1.10"
+  }
+}
